@@ -2,7 +2,7 @@
 
 #set -e
 
-DOMAIN="local.api.qeestudiar.com"
+DOMAIN="local.oauth2.qeestudiar.com"
 IMAGE="qe_web"
 
 FRONTEND_DIR=app/frontend
