@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+    cli:
+        image: jbmarflo/docker-web:cli
+        environment:
+            - DEV_UID=${DEV_UID}
+            - DEV_GID=${DEV_GID}
+        volumes:
+            - ./app/:/var/www/html
+            - ./docker/ssh/:/app/.ssh/

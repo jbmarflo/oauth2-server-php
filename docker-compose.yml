@@ -1,0 +1,73 @@
+version: '2'
+
+services:
+
+#  elasticsearch:
+#    build: docker/elasticsearch/
+#    volumes:
+#      - ./docker/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+#    ports:
+#      - "9200:9200"
+#      - "9300:9300"
+#    environment:
+#      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+#    networks:
+#      - elk
+
+#  logstash:
+#    build: docker/logstash/
+#    volumes:
+#      - ./docker/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+#      - ./docker/logstash/pipeline:/usr/share/logstash/pipeline
+#    ports:
+#      - "5000:5000"
+#    environment:
+#      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+#    networks:
+#      - elk
+#    depends_on:
+#      - elasticsearch
+
+#  kibana:
+#    build: docker/kibana/
+#    volumes:
+#      - ./docker/kibana/config/:/usr/share/kibana/config
+#    ports:
+#      - "5601:5601"
+#    networks:
+#      - elk
+#    depends_on:
+#      - elasticsearch
+
+  nginx:
+    image: jbmarflo/docker-web:nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - ./app/:/var/www/html
+    links:
+      - web
+    container_name: nginx
+#  composer:
+#    build: docker/composer/
+#    restart: 'no'
+#    command: install
+  web:
+    image: jbmarflo/docker-web:cli
+    volumes:
+      - ./app/:/var/www/html
+    container_name: web
+
+#docker-compose run --rm composer install
+#volumes:
+#  esdata1:
+#    driver: local
+#  esdata2:
+#    driver: local
+#networks:
+#  esnet:
+
+#networks:
+#
+#  elk:
+#    driver: bridge
