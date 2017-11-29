@@ -57,6 +57,15 @@ services:
     volumes:
       - ./app/:/var/www/html
     container_name: web
+  mongo:
+    image: jbmarflo/docker-web:mongo
+    ports:
+      - 27018:27017
+#    environment:
+#      - MONGO_INITDB_ROOT_USERNAME=admin
+#      - MONGO_INITDB_ROOT_PASSWORD=admin123456
+    volumes:
+      - ./docker/mongo/data:/docker-entrypoint-initdb.d
 
 #docker-compose run --rm composer install
 #volumes:

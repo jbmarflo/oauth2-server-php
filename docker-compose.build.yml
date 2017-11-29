@@ -9,6 +9,11 @@ services:
       image: jbmarflo/docker-web:cli
       build:
         context: ./docker/php-fpm/
+
+    mongo:
+        image: jbmarflo/docker-web:mongo
+        build:
+          context: ./docker/mongo/
 #    elasticsearch_1:
 #      image: elasticsearch_project:5.6.1
 #      build:
