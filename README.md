@@ -1,12 +1,9 @@
-# Proyecto Docker
-Esta es una estructura para comenzar un proyecto indpendientemente del lenguaje o framework.
+# Proyecto
+Servidor de aouth2 con symfony para seguridad de tus microservicios.
 
-# Carpeta /App
-Aqui va tu proyecto.
-
-# Carpeta /Config
-Aquí va tus variables de entorno
-
-#Carpeta /Docker
-Aqui estan todos las configuraciones de las diferentes imágenes de docker.
-Podrán encontra elasticsearch, kibana, logstash, mysql, nginx, php-fpm.
+# Instalación
+    1. Cambiar la variable en script.sh DOMAIN a tu dominio
+    2. Construye las imágenes (consola: make build)
+    3. Instala el  proyecto (consola: make install)
+    4. Levanta proyecto (consola: make start)
+    5. El proyecto esta levantado en el puerto 8000 (localhost:8000)
